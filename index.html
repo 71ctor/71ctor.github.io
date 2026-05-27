@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,108 +7,150 @@
   <meta name="description" content="AI Engineering student at CMKL University — building practical AI systems with curiosity, discipline, and real-world impact in mind.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inconsolata:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="grain"></div>
 
+  <button class="theme-toggle" aria-label="Toggle colour scheme">
+    <span class="theme-icon">☀</span>
+  </button>
+
+  <button class="top-btn" aria-label="Scroll to top">↑</button>
+
   <header class="site-header">
     <div class="wordmark">71CTOR<span class="cursor">_</span></div>
     <nav class="site-nav">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#work">Work</a>
-      <a href="#contact">Contact</a>
+      <a href="#about"><span class="nav-num">01.</span> About</a>
+      <a href="#skills"><span class="nav-num">02.</span> Skills</a>
+      <a href="#experience"><span class="nav-num">03.</span> Experience</a>
+      <a href="#work"><span class="nav-num">04.</span> Projects</a>
+      <a href="#contact"><span class="nav-num">05.</span> Contact</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <p class="eyebrow">// PORTFOLIO · 2026</p>
-      <h1>
-        Radit<br>
-        <em>Srisathaporn<span class="accent">.</span></em>
-      </h1>
-      <p class="lede">AI Engineering student at CMKL University — building practical AI systems with curiosity, discipline, and real-world impact in mind.</p>
-      <div class="hero-meta">
-        <span>Bangkok · Thailand</span>
-        <span class="meta-dot">●</span>
-        <span>Open to opportunities</span>
+    <!-- INTRO -->
+    <section class="intro" id="intro">
+      <p class="intro-greeting">Hi, my name is</p>
+      <h1 class="intro-name">Radit <span class="wave">👋</span></h1>
+      <h2 class="intro-sub">I build things with AI.</h2>
+      <p class="intro-lede">
+        I'm an AI Engineering student at <span class="accent">CMKL University</span>, Bangkok — focused on building practical machine learning systems, exploring local AI deployment, and crafting clean, thoughtful software.
+      </p>
+      <div class="intro-cta">
+        <a href="https://github.com/71ctor" target="_blank" rel="noopener" class="btn-outline">GitHub</a>
+        <a href="mailto:radit.srisathaporn@gmail.com" class="btn-outline">Get In Touch</a>
+      </div>
+      <div class="intro-status">
+        <span class="status-dot"></span>
+        <span>Open to opportunities · Bangkok, Thailand</span>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section class="about" id="about">
-      <p class="section-label">// 01 — About</p>
+      <h3 class="section-heading"><span class="section-num">01.</span> About Me</h3>
       <div class="about-body">
-        <p>I'm <strong>Victor</strong> — an AI Engineering student at <em>CMKL University</em> with a deep passion for technology, problem-solving, and building things that matter.</p>
-        <p>My interests span <strong>machine learning</strong>, local AI deployment, cybersecurity concepts, UX/UI design, and system architecture. I learn quickly, adapt under pressure, and constantly push to improve both technically and personally.</p>
-        <p>Despite an unconventional journey, I've kept moving forward with <em>determination and self-discipline</em> — driven by a belief in meaningful work, creativity, and real-world impact. My goal is to grow into a strong engineer who can contribute to innovative AI solutions.</p>
+        <div class="about-text">
+          <p>I'm <strong>Victor</strong> — an AI Engineering student at CMKL University with a deep passion for technology, problem-solving, and building things that matter.</p>
+          <p>My interests span <strong>machine learning</strong>, local AI deployment, cybersecurity concepts, UX/UI design, and system architecture. I learn quickly, adapt under pressure, and constantly push to improve both technically and personally.</p>
+          <p>Despite an unconventional journey, I've kept moving forward with <em>determination and self-discipline</em> — driven by a belief in meaningful work, creativity, and real-world impact. My goal is to grow into a strong engineer who can contribute to innovative AI solutions.</p>
+          <p>When I'm not studying or coding, I'm exploring new tools, reading about systems design, and thinking about how AI can be deployed responsibly at the edge.</p>
+        </div>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section class="skills" id="skills">
-      <p class="section-label">// 02 — Skills & Stack</p>
+      <h3 class="section-heading"><span class="section-num">02.</span> Skills & Stack</h3>
       <div class="skills-grid">
-        <div class="skill-card">
-          <span class="skill-icon">PY</span>
-          <span class="skill-name">Python</span>
-          <span class="skill-sub">Scripts · Automation · Logic</span>
+        <div class="skill-group">
+          <h4 class="skill-group-title">Languages</h4>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>Rust</li>
+            <li>JavaScript</li>
+            <li>HTML / CSS</li>
+            <li>SQL</li>
+          </ul>
         </div>
-        <div class="skill-card">
-          <span class="skill-icon">AI</span>
-          <span class="skill-name">Machine Learning</span>
-          <span class="skill-sub">Models · Local AI · Deployment</span>
+        <div class="skill-group">
+          <h4 class="skill-group-title">ML & AI</h4>
+          <ul class="skill-list">
+            <li>Machine Learning</li>
+            <li>Neural Networks</li>
+            <li>Local AI Deployment</li>
+            <li>Data Analysis</li>
+            <li>Jupyter / NumPy</li>
+          </ul>
         </div>
-        <div class="skill-card">
-          <span class="skill-icon">&lt;/&gt;</span>
-          <span class="skill-name">HTML / CSS / JS</span>
-          <span class="skill-sub">Web · UI · Interactivity</span>
+        <div class="skill-group">
+          <h4 class="skill-group-title">Tools</h4>
+          <ul class="skill-list">
+            <li>Git & GitHub</li>
+            <li>Linux / CLI</li>
+            <li>System Architecture</li>
+            <li>Cybersecurity Concepts</li>
+            <li>Threat Modelling</li>
+          </ul>
         </div>
-        <div class="skill-card">
-          <span class="skill-icon">UX</span>
-          <span class="skill-name">UX / UI Design</span>
-          <span class="skill-sub">Interfaces · Experience · Flow</span>
-        </div>
-        <div class="skill-card">
-          <span class="skill-icon">SEC</span>
-          <span class="skill-name">Cybersecurity</span>
-          <span class="skill-sub">Concepts · Threat Modelling</span>
-        </div>
-        <div class="skill-card">
-          <span class="skill-icon">SYS</span>
-          <span class="skill-name">System Architecture</span>
-          <span class="skill-sub">Design · Structure · Scale</span>
-        </div>
-        <div class="skill-card">
-          <span class="skill-icon">GIT</span>
-          <span class="skill-name">Git & GitHub</span>
-          <span class="skill-sub">Version Control · Collaboration</span>
-        </div>
-        <div class="skill-card">
-          <span class="skill-icon">DB</span>
-          <span class="skill-name">SQL / Databases</span>
-          <span class="skill-sub">Queries · Data · Storage</span>
+        <div class="skill-group">
+          <h4 class="skill-group-title">Design</h4>
+          <ul class="skill-list">
+            <li>UX / UI Design</li>
+            <li>Figma</li>
+            <li>Responsive Web</li>
+            <li>Design Systems</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- WORK / PROJECTS -->
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+      <h3 class="section-heading"><span class="section-num">03.</span> Experience</h3>
+      <div class="exp-list">
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">B.Eng. Artificial Intelligence Engineering</span>
+            <span class="exp-sep"> @ </span>
+            <a href="https://www.cmkl.ac.th" target="_blank" rel="noopener" class="exp-org accent-link">CMKL University</a>
+          </div>
+          <p class="exp-date">2024 — Present · Bangkok, Thailand</p>
+          <ul class="exp-bullets">
+            <li>Studying applied machine learning, data structures, system design, and AI engineering fundamentals.</li>
+            <li>Building real-world projects in Python and Rust — from neural networks to operating system components.</li>
+            <li>Exploring cybersecurity, local AI deployment, and responsible AI in resource-constrained environments.</li>
+            <li>Pursuing independent research in UX/UI design alongside core engineering coursework.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
     <section class="work" id="work">
-      <p class="section-label">// 03 — Projects</p>
+      <h3 class="section-heading"><span class="section-num">04.</span> Projects</h3>
       <div id="projects-list">
-        <p class="loading-text">Loading projects<span class="dots">...</span></p>
+        <p class="loading-text">Loading projects<span class="dots">…</span></p>
+      </div>
+    </section>
+
+    <!-- OTHER PROJECTS -->
+    <section class="other-projects" id="other-projects">
+      <h4 class="other-projects-title">Other Noteworthy Projects</h4>
+      <div id="other-projects-list" class="other-grid">
+        <!-- populated by JS -->
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-      <p class="section-label">// 04 — Contact</p>
-      <h2>Let's <em>work<br>together.</em></h2>
+      <h3 class="section-heading"><span class="section-num">05.</span> Get In Touch</h3>
+      <p class="contact-lede">I'm currently open to new opportunities. Whether you have a question, a project idea, or just want to say hi — my inbox is always open.</p>
 
       <form
         class="contact-form"
@@ -127,21 +169,20 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
         </div>
-        <button type="submit" class="submit-btn">Send message →</button>
+        <button type="submit" class="submit-btn">Say Hello</button>
         <p class="form-note" id="form-status"></p>
       </form>
-
-      <ul class="contact-links">
-        <li><a href="https://github.com/71ctor" target="_blank" rel="noopener">GitHub — github.com/71ctor</a></li>
-        <li><a href="mailto:radit.srisathaporn@gmail.com">Email — radit.srisathaporn@gmail.com</a></li>
-      </ul>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <span>© 2026 Radit Srisathaporn</span>
-    <span>Built with HTML · CSS · JS</span>
+    <ul class="footer-links">
+      <li><a href="https://github.com/71ctor" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:radit.srisathaporn@gmail.com">Email</a></li>
+    </ul>
+    <p class="footer-credit">Designed & Built by Radit Srisathaporn</p>
+    <p class="footer-sub">Inspired by <a href="https://brittanychiang.com" target="_blank" rel="noopener" class="accent-link">brittanychiang.com</a></p>
   </footer>
 
   <script src="script.js"></script>
