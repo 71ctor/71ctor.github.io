@@ -467,6 +467,9 @@ section {
 /* ---------- EXPERIENCE ---------- */
 .exp-list {
   max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .exp-item {
@@ -703,6 +706,56 @@ section {
   content: '⬤ ';
   font-size: 0.6rem;
   color: var(--accent);
+}
+
+/* ---------- CERTIFICATIONS ---------- */
+.cert-list {
+  list-style: none;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cert-item {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 1.5rem;
+  border-left: 2px solid var(--rule);
+  transition: border-color 0.2s ease;
+}
+
+.cert-item:hover {
+  border-left-color: var(--accent);
+}
+
+.cert-year {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-align: right;
+}
+
+.cert-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cert-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-hi);
+}
+
+.cert-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
 }
 
 /* ---------- CONTACT ---------- */

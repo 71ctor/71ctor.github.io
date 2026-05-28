@@ -68,6 +68,7 @@ function initScrollReveal() {
   sr.reveal('.experience',     { delay: 100 });
   sr.reveal('.work',           { delay: 100 });
   sr.reveal('.other-projects', { delay: 100 });
+  sr.reveal('.certs',          { delay: 100 });
   sr.reveal('.contact',        { delay: 100 });
 }
 
