@@ -19,22 +19,24 @@
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
+/* Warm parchment light theme — easy on the eyes */
 [data-theme="light"] {
-  --bg:       #f5f5f5;
-  --bg-soft:  #ffffff;
-  --bg-card:  #ffffff;
-  --ink:      #444452;
-  --ink-dim:  #888888;
-  --ink-hi:   #36363c;
-  --rule:     #e5e5e5;
-  --accent:   #007bff;
-  --accent-tint: rgba(0, 123, 255, 0.08);
+  --bg:       #F5EFE0;
+  --bg-soft:  #EDE6D3;
+  --bg-card:  #E8E1CE;
+  --ink:      #2E2416;
+  --ink-dim:  #6B5B48;
+  --ink-hi:   #1A1208;
+  --rule:     #D0C4AF;
+  --accent:   #B85A00;
+  --accent-tint: rgba(184, 90, 0, 0.08);
 }
 
 /* ---------- RESET ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
+
 
 body {
   background: var(--bg);
@@ -62,27 +64,26 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- THEME TOGGLE ---------- */
 .theme-toggle {
-  position: fixed;
-  top: 1.25rem;
-  right: 1.5rem;
-  z-index: 100;
   background: transparent;
   border: 1px solid var(--rule);
   border-radius: 50%;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.1rem;
+  height: 2.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--ink-dim);
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: var(--transition);
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 .theme-toggle:hover {
   border-color: var(--accent);
   color: var(--accent);
+  background: var(--accent-tint);
 }
 
 /* ---------- SCROLL TO TOP ---------- */
@@ -128,6 +129,12 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
   transition: background 0.3s ease;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .wordmark {
@@ -290,6 +297,9 @@ section {
   color: var(--ink-dim);
   margin-bottom: 2.5rem;
   line-height: 1.7;
+  text-align: justify;
+  hyphens: auto;
+  text-align-last: left;
 }
 
 .intro-lede .accent {
@@ -343,6 +353,42 @@ section {
   50%       { opacity: 0.4; }
 }
 
+/* ---------- SOCIAL LINKS (intro strip) ---------- */
+.social-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  color: var(--ink-dim);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+}
+
+.social-links a svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.social-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-tint);
+}
+
 /* ---------- ABOUT ---------- */
 .about-body {
   max-width: 640px;
@@ -355,6 +401,12 @@ section {
   font-size: 1rem;
   line-height: 1.75;
   color: var(--ink-dim);
+}
+
+.about-text p {
+  text-align: justify;
+  hyphens: auto;
+  text-align-last: left;
 }
 
 .about-text strong {
@@ -468,6 +520,9 @@ section {
   font-size: 0.95rem;
   color: var(--ink-dim);
   line-height: 1.65;
+  text-align: justify;
+  hyphens: auto;
+  text-align-last: left;
 }
 
 .exp-bullets li::before {
@@ -541,6 +596,9 @@ section {
   line-height: 1.65;
   margin-bottom: 1rem;
   max-width: 55ch;
+  text-align: justify;
+  hyphens: auto;
+  text-align-last: left;
 }
 
 .project-link {
@@ -627,6 +685,9 @@ section {
   line-height: 1.6;
   flex: 1;
   margin-bottom: 1.25rem;
+  text-align: justify;
+  hyphens: auto;
+  text-align-last: left;
 }
 
 .other-card-footer {
@@ -665,6 +726,9 @@ section {
   max-width: 46ch;
   margin-left: auto;
   margin-right: auto;
+  text-align: justify;
+  hyphens: auto;
+  text-align-last: left;
 }
 
 .contact-form {
@@ -755,19 +819,37 @@ section {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--ink-dim);
   letter-spacing: 0.05em;
-  transition: color 0.2s ease;
+  transition: var(--transition);
 }
 
-.footer-links a:hover { color: var(--accent); }
+.footer-links a svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+}
+
+.footer-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-tint);
+}
 
 .footer-credit {
   font-family: var(--font-mono);
@@ -798,15 +880,18 @@ section {
   .site-nav a { padding: 0.45rem 0.6rem; }
   .site-nav a::after { left: 0.6rem; right: 0.6rem; }
   .section-heading::after { display: none; }
-  .theme-toggle { top: 0.9rem; right: 4rem; }
+  .header-right { gap: 0.4rem; }
+  .theme-toggle { width: 1.9rem; height: 1.9rem; font-size: 0.85rem; }
   .other-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 600px) {
   section { padding: 4rem 0; }
-  .site-nav { gap: 0.1rem; }
-  .site-nav a { font-size: 0.72rem; padding: 0.4rem 0.45rem; }
-  .site-nav a::after { left: 0.45rem; right: 0.45rem; }
+  .site-nav { gap: 0.05rem; }
+  .site-nav a { font-size: 0.7rem; padding: 0.38rem 0.4rem; }
+  .site-nav a::after { left: 0.4rem; right: 0.4rem; }
+  .header-right { gap: 0.25rem; }
+  .theme-toggle { width: 1.8rem; height: 1.8rem; font-size: 0.8rem; }
   .project { grid-template-columns: 1fr; gap: 0.75rem; }
   .project-num { display: none; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -814,4 +899,11 @@ section {
   .submit-btn { width: 100%; }
   .intro-cta { flex-direction: column; }
   .btn-outline { text-align: center; }
+  .social-links { gap: 0.4rem; }
+  .social-links a { font-size: 0.72rem; padding: 0.38rem 0.65rem; }
+}
+
+@media (max-width: 400px) {
+  .site-nav a { font-size: 0.65rem; padding: 0.35rem 0.35rem; }
+  .theme-toggle { width: 1.65rem; height: 1.65rem; font-size: 0.75rem; }
 }

@@ -1,5 +1,14 @@
 const GITHUB_USER = '71ctor';
 
+// Manual descriptions for repos that have none set on GitHub.
+// To add a new project: add an entry with the exact repo name as the key.
+const PROJECT_DESCRIPTIONS = {
+  'Prediction-of-car-sales-in-Germany':
+    'This project focuses on understanding the full data pipeline, from raw data acquisition to building a simple AI model using a real-world dataset. The dataset used in this project contains used-car listings collected from an online German marketplace and includes both numerical and categorical attributes such as mileage, registration year, engine power, brand, fuel type, and price.',
+  'Predicting-5-Year-Mortality-in-Colorectal-Cancer-using-an-Artificial-Neural-Network':
+    'The purpose of this project is to develop and evaluate an Artificial Neural Network (ANN) model for predicting 5-year mortality outcomes in colorectal cancer patients using the SurGen SR386 clinical cohort dataset. This project aims to demonstrate how supervised machine learning, specifically neural networks, can be applied to structured clinical data to support data-driven survival analysis. By learning patterns from patient attributes and clinical indicators, the model attempts to classify whether a patient is likely to survive beyond five years after diagnosis.',
+};
+
 // ---------- THEME ----------
 function initTheme() {
   const saved = localStorage.getItem('theme');
@@ -84,37 +93,10 @@ async function loadProjects() {
     const featured = filtered.slice(0, 3);
     const others   = filtered.slice(3);
 
-    featuredContainer.innerHTML = featured.map((repo, i) => `
-      <div class="project">
-        <span class="project-num">0${i + 1}</span>
-        <div class="project-body">
-          <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${formatName(repo.name)}</a></h3>
-          <p class="project-meta">
-            ${repo.language ? repo.language + ' · ' : ''}Updated ${timeAgo(repo.updated_at)}
-          </p>
-          <p class="project-desc">${repo.description || 'No description provided.'}</p>
-          <a class="project-link" href="${repo.html_url}" target="_blank" rel="noopener">
-            View on GitHub ↗
-          </a>
-        </div>
-      </div>
-    `).join('');
+    featuredContainer.innerHTML = featured.map((repo, i) => renderFeaturedCard(repo, i)).join('');
 
     if (otherContainer && others.length > 0) {
-      otherContainer.innerHTML = others.map(repo => `
-        <div class="other-card">
-          <div class="other-card-header">
-            <span class="other-card-icon">📁</span>
-            <a class="other-card-link" href="${repo.html_url}" target="_blank" rel="noopener">↗</a>
-          </div>
-          <h4>${formatName(repo.name)}</h4>
-          <p>${repo.description || 'No description provided.'}</p>
-          <div class="other-card-footer">
-            ${repo.language ? `<span class="other-card-lang">${repo.language}</span>` : ''}
-            <span>${timeAgo(repo.updated_at)}</span>
-          </div>
-        </div>
-      `).join('');
+      otherContainer.innerHTML = others.map(repo => renderOtherCard(repo)).join('');
     } else if (otherContainer) {
       otherContainer.style.display = 'none';
       document.querySelector('.other-projects-title').style.display = 'none';
@@ -123,6 +105,47 @@ async function loadProjects() {
   } catch {
     featuredContainer.innerHTML = `<p class="loading-text">Could not load projects. Visit <a href="https://github.com/${GITHUB_USER}" style="color:var(--accent)">github.com/${GITHUB_USER}</a> directly.</p>`;
   }
+}
+
+// ---- Card templates ----
+// To add a new featured project card, add its repo name to PROJECT_DESCRIPTIONS above.
+// The card structure below is the single source of truth for all featured project cards.
+function renderFeaturedCard(repo, index) {
+  const desc = repo.description || PROJECT_DESCRIPTIONS[repo.name] || '';
+  return `
+    <div class="project">
+      <span class="project-num">0${index + 1}</span>
+      <div class="project-body">
+        <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${formatName(repo.name)}</a></h3>
+        <p class="project-meta">
+          ${repo.language ? repo.language + ' · ' : ''}Updated ${timeAgo(repo.updated_at)}
+        </p>
+        <p class="project-desc">${desc}</p>
+        <a class="project-link" href="${repo.html_url}" target="_blank" rel="noopener">
+          View on GitHub ↗
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+// To add a new other/small project card, same pattern — add description to PROJECT_DESCRIPTIONS.
+function renderOtherCard(repo) {
+  const desc = repo.description || PROJECT_DESCRIPTIONS[repo.name] || '';
+  return `
+    <div class="other-card">
+      <div class="other-card-header">
+        <span class="other-card-icon">📁</span>
+        <a class="other-card-link" href="${repo.html_url}" target="_blank" rel="noopener">↗</a>
+      </div>
+      <h4>${formatName(repo.name)}</h4>
+      <p>${desc}</p>
+      <div class="other-card-footer">
+        ${repo.language ? `<span class="other-card-lang">${repo.language}</span>` : ''}
+        <span>${timeAgo(repo.updated_at)}</span>
+      </div>
+    </div>
+  `;
 }
 
 function formatName(name) {
